@@ -1,0 +1,37 @@
+html, body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+.welcome-text {
+	min-height: 75vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.welcome-text h1{
+	font-size: 55px;
+}
+
+
+
+.diagonal-bar {
+	position: absolute;
+	height: 160px;
+	opacity: 0.8;
+	z-index: -1;
+}
+.bar1 { 
+	top: 80%; 
+	width: 200vw; 	
+	left: -85vw; 
+	transform: rotate(65deg);
+ }
+.bar2 { 
+	top: 0%; 
+	width: 200vw; 
+	left: -15vw; 
+	transform: rotate(50deg); 
+}
