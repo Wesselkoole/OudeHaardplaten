@@ -24,11 +24,11 @@ h1,h2,h3,h4,h5,p {
 }
 
 .img-fluid {
-	width: 100%;  /* Makes the image 1.5x the width of the parent div */
-	max-width: none; /* Prevents the image from being constrained */
-	height: auto; /* Maintains the aspect ratio */
-	display: block; /* Removes unwanted inline spacing */
-	position: relative; /* Ensures correct positioning */
-	left: 50%; /* Moves it to the right */
-	transform: translateX(-50%); /* Centers it back */
+    max-height: 300px;
+    width: auto; 
+    max-width: 100%; 
+    height: auto; 
+    display: block;
+    margin: 0 auto; 
+    object-fit: contain; 
 }
