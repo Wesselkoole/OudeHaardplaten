@@ -6,6 +6,10 @@
 	color: black !important;
 }
 
+.mobile-nav .nav-link {
+	color: white !important;
+}
+
 /* Custom styling only for the toggler button */
 .navbar-toggler {
 	background-color: #4C585B !important;
