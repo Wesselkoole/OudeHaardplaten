@@ -1,0 +1,12 @@
+h3, h5, p {
+    color: black !important;
+}
+.price {
+    color: gray !important;
+}
+
+.card-img-top {
+    max-height: 300px;
+    width: 100%;
+    object-fit: contain; /* Ensures full image is visible without cropping */
+}
