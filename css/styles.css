@@ -32,3 +32,22 @@ h1,h2,h3,h4,h5,p {
     margin: 0 auto; 
     object-fit: contain; 
 }
+
+.diagonal-bar {
+	position: absolute;
+	height: 160px;
+	opacity: 0.8;
+	z-index: -1;
+}
+.bar1 { 
+	top: 80%; 
+	width: 200vw; 	
+	left: -85vw; 
+	transform: rotate(65deg);
+ }
+.bar2 { 
+	top: 0%; 
+	width: 200vw; 
+	left: -15vw; 
+	transform: rotate(50deg); 
+}
