@@ -6,7 +6,8 @@ h3, h5, p {
 }
 
 .card-img-top {
-    max-height: 300px;
+    height: 300px;
     width: 100%;
-    object-fit: contain; /* Ensures full image is visible without cropping */
+    object-fit: contain; 
+    margin-bottom: 30px;
 }
