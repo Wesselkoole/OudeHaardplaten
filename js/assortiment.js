@@ -24,9 +24,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Load the corresponding content based on the checked button
             if (checkedInput.id === "option1") {
-                loadContent("../haardplaten.html");
+                loadContent("haardplaten.html");
             } else if (checkedInput.id === "option2") {
-                loadContent("../haardblokken.html");
+                loadContent("haardblokken.html");
             }
         }
     }
