@@ -7,7 +7,7 @@
 	<title>Home</title>
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/index.css">
-	<script src="js/navbar.js"></script>
+	<script src="js/navbar.js" defer></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
 		crossorigin="anonymous"></script>
@@ -17,28 +17,29 @@
 
 <body>
 	<body>
-		<div class="container d-flex flex-column min-vh-100">
+		<div class="container d-flex flex-column min-vh-100 background-image">
 			<div id="header">
 			</div>
 			<div class="diagonal-bar bar1 background-color-3"></div>
 			<div class="diagonal-bar bar2 background-color-3"></div>
 			<!-- Main content section, independent from header -->
-			<div class="flex-grow-1 d-flex flex-column justify-content-center align-items-center text-start">
-				<!-- Wrapper div to keep everything aligned on the left but centered on the page -->
-				<div class="mx-auto">
-					<div class="row">
-						<div class="col">
-							<h1>Oude Haardplaten<br> in elke vorm en maat.</h1>
-							<h5>Neem een kijkje in het assortiment en/of <br>
-								neem contact op bij vragen <br>
-								of interesse.
-							</h5>
+			<div class="flex-grow-1 d-flex flex-column justify-content-center align-items-center text-start mb-5">
+				<div class="text-container">
+					<div class="mx-auto">
+						<div class="row">
+							<div class="col">
+								<h1>Oude Haardplaten<br> in elke vorm en maat.</h1>
+								<h5>Neem een kijkje in het assortiment en/of <br>
+									neem contact op bij vragen <br>
+									of interesse.
+								</h5>
+							</div>
 						</div>
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							<a href="/OudeHaardplaten/assortment.html" class="btn btn-lg background-color-2 text-white rounded-pill">Assortiment ></a>
-							<a href="/OudeHaardplaten/contact.html" class="btn btn-lg text-color-2 rounded-pill">Contact ></a>
+						<div class="row mt-3">
+							<div class="col">
+								<a href="/assortment.html" class="btn btn-lg background-color-2 text-white rounded-pill">Assortiment ></a>
+								<a href="/contact.html" class="btn btn-lg text-color-2 rounded-pill">Contact ></a>
+							</div>
 						</div>
 					</div>
 				</div>
