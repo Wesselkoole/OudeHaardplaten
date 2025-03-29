@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (checkedInput.id === "option1") {
                 loadContent("haardplaten.html");
             } else if (checkedInput.id === "option2") {
-                loadContent("haardblokken.html");
+                loadContent("haardbokken.html");
             }
         }
     }
