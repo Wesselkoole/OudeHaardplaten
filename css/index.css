@@ -3,7 +3,6 @@ html, body {
     height: 100%;
     width: 100%;
     position: fixed;
-    background-color: white !important;
 }
 .welcome-text {
 	min-height: 75vh;
@@ -17,7 +16,7 @@ html, body {
 }
 
 .background-image {
-    background-image: url('/OudeHaardplaten/media/homeImage.jpeg');
+    background-image: url('/media/homeImage2.jpg');
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
@@ -28,7 +27,7 @@ html, body {
 /* On wider screens, prevent cropping */
 @media (min-aspect-ratio: 16/9) {
     .background-image {
-        background-size: contain; /* Ensures the full image is always visible */
+        background-size: cover; /* Ensures the full image is always visible */
     }
 }
 
@@ -46,5 +45,4 @@ html, body {
     color: white; 
     padding: 50px 20px;
 }
-
 
