@@ -1,0 +1,53 @@
+body {
+	background-color: #4C585B !important;
+}
+
+h1,h2,h3,h4,h5,p {
+	color: white;
+	font-family: monospace;
+}
+
+.background-color-1 {
+	background-color: #727F83 !important;
+}
+
+.background-color-2{
+	background-color: #A5BFCC !important;
+}
+
+.text-color-2{
+	color: #A5BFCC !important;
+}
+
+.background-color-3 {
+	background-color: #F4EDD3 !important;
+}
+
+.img-fluid {
+    max-height: 300px;
+    width: auto; 
+    max-width: 100%; 
+    height: auto; 
+    display: block;
+    margin: 0 auto; 
+    object-fit: contain; 
+}
+
+.diagonal-bar {
+	position: absolute;
+	height: 160px;
+	opacity: 0.8;
+	z-index: -1;
+}
+.bar1 { 
+	top: 80%; 
+	width: 200vw; 	
+	left: -85vw; 
+	transform: rotate(65deg);
+ }
+.bar2 { 
+	top: 0%; 
+	width: 200vw; 
+	left: -15vw; 
+	transform: rotate(50deg); 
+}

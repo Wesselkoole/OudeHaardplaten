@@ -1,0 +1,48 @@
+html, body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+.welcome-text {
+	min-height: 75vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.welcome-text h1{
+	font-size: 55px;
+}
+
+.background-image {
+    background-image: url('/OudeHaardplaten/media/homeImage2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh; /* Ensures full viewport height */
+    position: relative;
+}
+
+/* On wider screens, prevent cropping */
+@media (min-aspect-ratio: 16/9) {
+    .background-image {
+        background-size: cover; /* Ensures the full image is always visible */
+    }
+}
+
+/* On mobile screens, keep 'cover' for a full-screen effect */
+@media (max-aspect-ratio: 9/16) {
+    .background-image {
+        background-size: cover;
+    }
+}
+
+
+.text-container {
+    position: relative; 
+    z-index: 1; 
+    color: white; 
+    padding: 50px 20px;
+}
+
