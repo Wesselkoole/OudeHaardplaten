@@ -1,5 +1,8 @@
-body, html {
-	overflow: hidden;
+html, body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: fixed;
 }
 .contact-form {
 	border-radius: 20px;	
