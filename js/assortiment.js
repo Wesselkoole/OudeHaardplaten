@@ -1,41 +1,58 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".btn-check");
-    
-    function loadContent(page) {
-        fetch(page)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById("content").innerHTML = data;
-            })
-            .catch(error => console.error("Error loading content:", error));
+import { createClient } from "https://esm.sh/@supabase/supabase-js";
+
+const SUPABASE_URL = "https://zwczthjsxzstedtodgfe.supabase.co";
+const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp3Y3p0aGpzeHpzdGVkdG9kZ2ZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA2MzA1NDEsImV4cCI6MjA3NjIwNjU0MX0.R1MFe-WIb1Nju-D27BfY1BiFkDo_V_PKthMP3hhkhDc";
+const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// Haal radio buttons op
+const radioHaardplaten = document.getElementById("option1");
+const radioHaardbokken = document.getElementById("option2");
+
+// Functie om kaarten te renderen op basis van de geselecteerde filter
+async function renderHaardplaten() {
+  const isHaardplaat = radioHaardplaten.checked; // true als Haardplaten geselecteerd
+  const { data, error } = await supabase.from("haardplaten").select("*");
+
+  if (error) {
+    console.error(error);
+    return;
+  }
+
+  const container = document.querySelector("#haardplaten-container");
+  container.innerHTML = ""; // eerst leegmaken
+
+  // Maak één rij voor alle kaarten
+  const row = document.createElement("div");
+  row.classList.add("row", "g-4");
+
+  data.forEach(p => {
+    if (p.isHaardplaat === isHaardplaat) {
+      const col = document.createElement("div");
+      col.classList.add("col-12", "col-sm-6", "col-md-4", "col-lg-3");
+
+      col.innerHTML = `
+        <div class="card h-100 shadow-sm">
+          <img src="${p.afbeelding}" class="card-img-top" alt="${p.titel}">
+          <div class="card-body">
+            <h5 class="card-title fw-bold text-secondary">${p.titel}</h5>
+            ${p.beschrijving ? `<p class="card-text fw-bold fst-italic">${p.beschrijving}</p>` : ""}
+            <p class="card-text price">€${p.prijs}</p>
+            <p class="card-text">${p.code}</p>
+            <p class="card-text">${p.afmeting}</p>
+          </div>
+        </div>
+      `;
+      row.appendChild(col);
     }
+  });
 
-    function updateBackground() {
-        // Remove active class from all labels
-        document.querySelectorAll("label.switch-btn").forEach(label => {
-            label.classList.remove("active");
-        });
+  container.appendChild(row);
+}
 
-        // Find the checked input
-        const checkedInput = document.querySelector(".btn-check:checked");
-        if (checkedInput) {
-            const label = document.querySelector(`label[for="${checkedInput.id}"]`);
-            label.classList.add("active"); // Apply active styling
 
-            // Load the corresponding content based on the checked button
-            if (checkedInput.id === "option1") {
-                loadContent("haardplaten.html");
-            } else if (checkedInput.id === "option2") {
-                loadContent("haardbokken.html");
-            }
-        }
-    }
+// Event listeners op radio buttons
+radioHaardplaten.addEventListener("change", renderHaardplaten);
+radioHaardbokken.addEventListener("change", renderHaardplaten);
 
-    // Attach event listeners
-    buttons.forEach(button => {
-        button.addEventListener("change", updateBackground);
-    });
-
-    // Initialize the content for the checked button
-    updateBackground();
-});
+// Initieel renderen
+renderHaardplaten();
