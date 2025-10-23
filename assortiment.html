@@ -1,60 +1,42 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js";
+<!DOCTYPE html>
+<html lang="nl">
 
-const SUPABASE_URL = "https://zwczthjsxzstedtodgfe.supabase.co";
-const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp3Y3p0aGpzeHpzdGVkdG9kZ2ZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjA2MzA1NDEsImV4cCI6MjA3NjIwNjU0MX0.R1MFe-WIb1Nju-D27BfY1BiFkDo_V_PKthMP3hhkhDc";
-const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Oude Haardplaten - Uniek & authentiek</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/assortment.css">
+	<script src="js/navbar.js" defer></script>
+	<script src="js/assortiment.js" defer></script>
+	<script type="module" src="js/assortiment.js"></script>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/bootstrap.bundle.min.js" defer></script>
+	<meta name="description" content="Blader door ons assortiment oude haardplaten. Vind de perfecte haardplaat voor jouw open haard!">
+		<link rel="icon" type="image/png" href="/media/logo.png">
 
-// Haal radio buttons op
-const radioHaardplaten = document.getElementById("option1");
-const radioHaardbokken = document.getElementById("option2");
+</head>
+<body>
+	<div class="container">
+		<div id="header"></div>
+			<div class="row bg-light rounded mb-5">
+				<h3 class="text-center">Assortiment</h3>
+				<div class="row d-flex justify-content-center">
+					<div class="col-auto">
+						<input type="radio" class="btn-check" name="options" id="option1" autocomplete="off" checked>
+						<label class="btn switch-btn d-inline-block" for="option1">Haardplaten</label>
+					</div>
+					<div class="col-auto">
+						<input type="radio" class="btn-check" name="options" id="option2" autocomplete="off">
+						<label class="btn switch-btn d-inline-block" for="option2">Haardbokken</label>
+					</div>
+				</div>
+				<div class="row" id="haardplaten-container">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
 
-// Functie om kaarten te renderen op basis van de geselecteerde filter
-async function renderHaardplaten() {
-  const isHaardplaat = radioHaardplaten.checked; // true als Haardplaten geselecteerd
-  const { data, error } = await supabase.from("haardplaten").select("*");
+</html>
 
-  if (error) {
-    console.error(error);
-    return;
-  }
-
-  const container = document.querySelector("#haardplaten-container");
-  container.innerHTML = ""; // eerst leegmaken
-
-  // Maak één rij voor alle kaarten
-  const row = document.createElement("div");
-  row.classList.add("row", "g-4");
-
-  data.forEach(p => {
-    if (p.isHaardplaat === isHaardplaat) {
-      const col = document.createElement("div");
-      col.classList.add("col-12", "col-sm-6", "col-md-4", "col-lg-3");
-
-      col.innerHTML = `
-        <div class="card h-100 shadow-sm">
-          <img src="${p.afbeelding}" class="card-img-top" alt="${p.titel}">
-          <div class="card-body">
-            ${p.isVerkocht ? `<h5 class="card-text text-danger">Verkocht</h5>` : 
-            `<h5 class="card-title fw-bold text-secondary">${p.titel}</h5>
-            ${p.beschrijving ? `<p class="card-text fw-bold fst-italic">${p.beschrijving}</p>` : ""}
-            <p class="card-text price">€${p.prijs}</p>
-            <p class="card-text">${p.code}</p>
-            <p class="card-text">${p.afmeting}</p>`}
-
-          </div>
-        </div>
-      `;
-      row.appendChild(col);
-    }
-  });
-
-  container.appendChild(row);
-}
-
-
-// Event listeners op radio buttons
-radioHaardplaten.addEventListener("change", renderHaardplaten);
-radioHaardbokken.addEventListener("change", renderHaardplaten);
-
-// Initieel renderen
-renderHaardplaten();
