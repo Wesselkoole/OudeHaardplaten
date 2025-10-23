@@ -34,11 +34,13 @@ async function renderHaardplaten() {
         <div class="card h-100 shadow-sm">
           <img src="${p.afbeelding}" class="card-img-top" alt="${p.titel}">
           <div class="card-body">
-            <h5 class="card-title fw-bold text-secondary">${p.titel}</h5>
+            ${p.isVerkocht ? `<h5 class="card-text text-danger">Verkocht</h5>` : 
+            `<h5 class="card-title fw-bold text-secondary">${p.titel}</h5>
             ${p.beschrijving ? `<p class="card-text fw-bold fst-italic">${p.beschrijving}</p>` : ""}
             <p class="card-text price">€${p.prijs}</p>
             <p class="card-text">${p.code}</p>
-            <p class="card-text">${p.afmeting}</p>
+            <p class="card-text">${p.afmeting}</p>`}
+
           </div>
         </div>
       `;
